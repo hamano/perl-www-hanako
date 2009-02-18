@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/WWW-Hanako.t
+lib/WWW/Hanako.pm

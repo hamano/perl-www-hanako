@@ -1,0 +1,6 @@
+Revision history for Perl extension WWW::Hanako.
+
+0.01  Wed Feb 18 23:50:42 2009
+	- original version; created by h2xs 1.23 with options
+		-AX --skip-exporter WWW::Hanako
+
