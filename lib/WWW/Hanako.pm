@@ -11,7 +11,7 @@ use Web::Scraper;
 
 our @ISA = qw();
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my $HANAKO_BASE_URI = 'http://kafun.taiki.go.jp/';
 
@@ -22,11 +22,12 @@ sub new
     my $proto = shift;
     my $class = ref($proto) || $proto;
     my $self = {
-        area => shift,
-        mst => shift,
+        area => $_{area} || 0,
+        mst => $_{mst} || 0,
         mech => WWW::Mechanize->new(agent=>"Net-Hanako/$VERSION"),
         debug => 0,
     };
+    %$self = (%$self, @_);
     bless($self, $class);
     return $self;
 }
@@ -73,6 +74,11 @@ sub today
         process '//table[@class="bun"]/tr/td[7]/font', 'prec_bool[]' => 'TEXT';
     };
     my $res = $scraper->scrape($content);
+    if(!$res->{"hour"}){
+        carp("scrape error");
+        return;
+    }
+
     my $num = @{$res->{"hour"}};
     for my $i (0 .. @{$res->{"hour"}} - 3){
         my $hour = $res->{'hour'}->[$i+2];
@@ -85,7 +91,7 @@ sub today
 
         push(@ret, {hour => $hour,
                     pollen => $pollen,
-                    speed => $ws,
+                    ws => $ws,
                     temp => $temp,
                     prec => $prec});
     }
@@ -111,13 +117,24 @@ WWW::Hanako - Perl interface for Hanako(Pollen observation system at Japan)
 =head1 SYNOPSIS
 
   use WWW::Hanako;
-  my $hanako = Hanako->new($area, $mst);
+  my $hanako = WWW::Hanako->new(area=>3, mst=>51300200);
   print $hanako->now()->{pollen} . "\n";
 
 =head1 DESCRIPTION
 
 This perl module provides an interface to the Hanako that is Pollen
 observation system at Japan.
+
+=head1 METHODS
+
+=head2 new
+Create new instance of WWW::Hanako
+
+=head2 today
+Method that returns the today's information.
+
+=head2 now
+Method that returns the current information.
 
 =head1 SEE ALSO
 
