@@ -11,7 +11,7 @@ use Web::Scraper;
 
 our @ISA = qw();
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my $HANAKO_BASE_URI = 'http://kafun.taiki.go.jp/';
 

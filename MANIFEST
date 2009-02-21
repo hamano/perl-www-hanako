@@ -1,8 +1,9 @@
+bin/hanako.pl
 Changes
+lib/WWW/Hanako.pm
 Makefile.PL
 MANIFEST
 README
-t/WWW-Hanako.t
-t/pod.t
 t/pod-coverage.t
-lib/WWW/Hanako.pm
+t/pod.t
+t/WWW-Hanako.t
