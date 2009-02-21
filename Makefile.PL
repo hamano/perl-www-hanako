@@ -5,7 +5,11 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME              => 'WWW::Hanako',
     VERSION_FROM      => 'lib/WWW/Hanako.pm', # finds $VERSION
-    PREREQ_PM         => {}, # e.g., Module::Name => 1.1
+    PREREQ_PM         => {
+        'Test::More' => 0,
+        'WWW::Mechanize' => 0,
+        'Web::Scraper' => 0,
+    }, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/WWW/Hanako.pm', # retrieve abstract from module
        AUTHOR         => 'Tsukasa Hamano <hamano@klab.org>') : ()),
