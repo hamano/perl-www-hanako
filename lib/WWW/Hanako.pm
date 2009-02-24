@@ -138,6 +138,12 @@ __END__
 
 WWW::Hanako - Perl interface for Hanako(Pollen observation system at Japan)
 
+=head1 DESCRIPTION
+
+This perl module provides an interface to the Hanako that is Pollen
+observation system at Japan.
+This might be useful for prevention of pollen allergy.
+
 =head1 SYNOPSIS
 
   use WWW::Hanako;
@@ -177,11 +183,6 @@ air temperature(degrees Celsius).
 amount of precipitation(mm).
 
 =back
-
-=head1 DESCRIPTION
-
-This perl module provides an interface to the Hanako that is Pollen
-observation system at Japan.
 
 =head1 METHODS
 
