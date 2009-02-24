@@ -12,7 +12,7 @@ use Data::Dumper;
 
 our @ISA = qw();
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 my $HANAKO_BASE_URI = 'http://kafun.taiki.go.jp/';
 
