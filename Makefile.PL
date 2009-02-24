@@ -7,6 +7,7 @@ WriteMakefile(
     VERSION_FROM      => 'lib/WWW/Hanako.pm', # finds $VERSION
     PREREQ_PM         => {
         'Test::More' => 0,
+        'LWP::UserAgent' => 0,
         'WWW::Mechanize' => 0,
         'Web::Scraper' => 0,
     }, # e.g., Module::Name => 1.1
