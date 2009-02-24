@@ -22,9 +22,21 @@ my $hanako = WWW::Hanako->new(area=>$area, mst=>$mst, debug=>$debug);
 if($today){
     my @list = $hanako->today();
     for(@list){
-        print "$_->{hour} $_->{pollen}\n";
+        printf("%2d %4d %2d %2d %2d %2d\n",
+        $_->{hour},
+        $_->{pollen},
+        $_->{wd},
+        $_->{ws},
+        $_->{temp},
+        $_->{prec});
     }
 }else{
     my $now = $hanako->now();
-    print "$now->{hour} $now->{pollen}\n";
+    printf("%2d %4d %2d %2d %2d %2d\n",
+           $now->{hour},
+           $now->{pollen},
+           $now->{wd},
+           $now->{ws},
+           $now->{temp},
+           $now->{prec});
 }
